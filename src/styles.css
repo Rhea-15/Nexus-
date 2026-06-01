@@ -1,0 +1,245 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-neon: var(--neon);
+  --color-violet: var(--violet);
+  --color-plasma: var(--plasma);
+  --font-display: 'Orbitron', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.06 0.02 270);
+  --foreground: oklch(0.96 0.01 240);
+  --card: oklch(0.10 0.03 270 / 0.5);
+  --card-foreground: oklch(0.96 0.01 240);
+  --popover: oklch(0.08 0.02 270);
+  --popover-foreground: oklch(0.96 0.01 240);
+  --primary: oklch(0.78 0.18 220);
+  --primary-foreground: oklch(0.06 0.02 270);
+  --secondary: oklch(0.18 0.05 270);
+  --secondary-foreground: oklch(0.96 0.01 240);
+  --muted: oklch(0.15 0.03 270);
+  --muted-foreground: oklch(0.65 0.04 250);
+  --accent: oklch(0.55 0.25 305);
+  --accent-foreground: oklch(0.96 0.01 240);
+  --destructive: oklch(0.62 0.25 25);
+  --destructive-foreground: oklch(0.96 0.01 240);
+  --border: oklch(0.30 0.10 250 / 0.4);
+  --input: oklch(0.15 0.03 270);
+  --ring: oklch(0.78 0.18 220);
+
+  --neon: oklch(0.82 0.18 220);       /* electric blue #00E5FF */
+  --violet: oklch(0.62 0.24 295);     /* deep violet #8B5CF6 */
+  --plasma: oklch(0.62 0.30 350);     /* plasma magenta #FF00AA */
+}
+
+.dark {
+  --background: oklch(0.06 0.02 270);
+  --foreground: oklch(0.96 0.01 240);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: #05060A;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  body {
+    background-image:
+      radial-gradient(ellipse at 20% 10%, oklch(0.20 0.15 220 / 0.25), transparent 60%),
+      radial-gradient(ellipse at 80% 80%, oklch(0.30 0.20 305 / 0.22), transparent 60%),
+      linear-gradient(180deg, #05060A 0%, #05060A 100%);
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-mono-tech { font-family: var(--font-mono); }
+  .text-neon { color: #00E5FF; }
+  .text-violet-neon { color: #8B5CF6; }
+  .text-plasma { color: #FF00AA; }
+  .bg-neon { background-color: #00E5FF; }
+  .bg-plasma { background-color: #FF00AA; }
+  .border-neon { border-color: #00E5FF; }
+  .border-plasma { border-color: #FF00AA; }
+
+  .glass {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.04), rgba(139, 92, 246, 0.04));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(0, 229, 255, 0.18);
+    box-shadow: 0 0 0 1px rgba(0,229,255,0.05) inset, 0 10px 40px -10px rgba(0, 229, 255, 0.25);
+  }
+  .glass-strong {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(139, 92, 246, 0.08));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(0,229,255,0.5), 0 0 40px rgba(0,229,255,0.25);
+  }
+  .plasma-glow {
+    box-shadow: 0 0 20px rgba(255,0,170,0.5), 0 0 40px rgba(255,0,170,0.25);
+  }
+  .violet-glow {
+    box-shadow: 0 0 20px rgba(139,92,246,0.5), 0 0 40px rgba(139,92,246,0.25);
+  }
+  .text-glow-neon {
+    text-shadow: 0 0 12px rgba(0,229,255,0.8), 0 0 30px rgba(0,229,255,0.4);
+  }
+  .text-glow-plasma {
+    text-shadow: 0 0 12px rgba(255,0,170,0.8), 0 0 30px rgba(255,0,170,0.4);
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Scan lines */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(0, 229, 255, 0.03) 3px,
+      rgba(0, 229, 255, 0.03) 4px
+    );
+    mix-blend-mode: overlay;
+  }
+
+  /* Holographic border */
+  .holo-border {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .holo-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #00E5FF, #8B5CF6 40%, #FF00AA, #00E5FF);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* Animations */
+  @keyframes pulse-glow {
+    0%,100% { box-shadow: 0 0 20px rgba(0,229,255,0.4), 0 0 40px rgba(0,229,255,0.2); }
+    50% { box-shadow: 0 0 30px rgba(0,229,255,0.8), 0 0 60px rgba(0,229,255,0.4); }
+  }
+  .animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+  @keyframes glitch {
+    0%,100% { transform: translate(0); text-shadow: 0 0 12px rgba(0,229,255,0.6); }
+    20% { transform: translate(-2px,1px); text-shadow: 2px 0 #FF00AA, -2px 0 #00E5FF; }
+    40% { transform: translate(2px,-1px); text-shadow: -2px 0 #FF00AA, 2px 0 #00E5FF; }
+    60% { transform: translate(-1px,2px); text-shadow: 0 0 12px rgba(139,92,246,0.8); }
+    80% { transform: translate(1px,-2px); text-shadow: 2px 0 #00E5FF, -2px 0 #FF00AA; }
+  }
+  .animate-glitch { animation: glitch 4s infinite; }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+  .animate-spin-reverse { animation: spin-slow 28s linear infinite reverse; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 35s linear infinite; }
+
+  @keyframes scan-beam {
+    0% { transform: translateY(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+  .animate-scan-beam { animation: scan-beam 3s ease-in-out infinite; }
+
+  @keyframes dash {
+    to { stroke-dashoffset: -200; }
+  }
+  .animate-dash { animation: dash 4s linear infinite; }
+}
+
+/* Hide native cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button { cursor: none !important; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #05060A; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00E5FF, #8B5CF6);
+  border-radius: 4px;
+}
