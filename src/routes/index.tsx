@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CustomCursor from "@/components/CustomCursor";
-import ParticleField from "@/components/ParticleField";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Technologies from "@/components/Technologies";
-import Stats from "@/components/Stats";
-import EvolutionJourney from "@/components/EvolutionJourney";
-import Marquee from "@/components/Marquee";
-import CommandCenter from "@/components/CommandCenter";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+import CustomCursor from "@/components/ui/CustomCursor";
+import ParticleField from "@/components/ui/ParticleField";
+import Navbar from "@/components/ui/Navbar";
+import Hero from "@/components/ui/Hero";
+import Technologies from "@/components/ui/Technologies";
+import Stats from "@/components/ui/Stats";
+import EvolutionJourney from "@/components/ui/EvolutionJourney";
+import Marquee from "@/components/ui/Marquee";
+import CommandCenter from "@/components/ui/CommandCenter";
+import CTA from "@/components/ui/CTA";
+import Footer from "@/components/ui/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({

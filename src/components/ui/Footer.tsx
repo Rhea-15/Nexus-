@@ -51,8 +51,6 @@ export default function Footer() {
           <h4 className="font-mono-tech text-xs tracking-[0.3em] text-plasma mb-4">CONTACT US</h4>
           <ul className="space-y-3 text-sm text-white/70">
             <li className="flex items-center gap-2"><Mail size={14} className="text-[#00E5FF]" /> nexus@evolution.io</li>
-            <li className="flex items-center gap-2"><Phone size={14} className="text-[#00E5FF]" /> +1 555 0199 247</li>
-            <li className="flex items-center gap-2"><MapPin size={14} className="text-[#00E5FF]" /> Neo Tokyo · Sector 7</li>
           </ul>
         </div>
 
